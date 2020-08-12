@@ -37,6 +37,8 @@
             </div>
         </div>
     </nav>
+
+    <!--Login Modal-->
     <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <!-- Modal content-->
@@ -73,6 +75,78 @@
             </div>
         </div>
     </div>
+
+    <!-- Reservation Form Modal -->
+    <div class="modal fade" id="reservemodal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Reserve a Table</h4>
+                    <button type="button" class="close" data-dismiss="modal">&cross;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="reservetable">
+                        <div class="form-group row align-items-center">
+                            <label class="col-12 col-sm-2 col-form-label">Number of Guests</label>
+                            <div class="form-check form-check-inline col-12 col-sm">
+                                <label class="form-check-label">
+                                    <input style="margin-right: 10px; margin-left: 10px;" type="radio" class="form-check-input" id="numberofguest1" name="numberofguest" value="1" checked>1
+                                </label>
+                                <label class="form-check-label">
+                                    <input style="margin-right: 10px; margin-left: 10px;" type="radio" class="form-check-input" id="numberofguest2" name="numberofguest" value="2">2
+                                </label>
+                                <label class="form-check-label">
+                                    <input style="margin-right: 10px; margin-left: 10px;" type="radio" class="form-check-input" id="numberofguest3" name="numberofguest" value="2">3
+                                </label>
+                                <label class="form-check-label">
+                                    <input style="margin-right: 10px; margin-left: 10px;" type="radio" class="form-check-input" id="numberofguest4" name="numberofguest" value="2">4
+                                </label>
+                                <label class="form-check-label">
+                                    <input style="margin-right: 10px; margin-left: 10px;" type="radio" class="form-check-input" id="numberofguest5" name="numberofguest" value="2">5
+                                </label>
+                                <label class="form-check-label">
+                                    <input style="margin-right: 10px; margin-left: 10px;" type="radio" class="form-check-input" id="numberofguest6" name="numberofguest" value="2">6
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center">
+                            <label class="col-12 col-sm-2 col-form-label">Section</label>
+                            <div class="col btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-success active">
+                                  <input type="radio" name="options" id="nonsmoking" autocomplete="off" checked>Non-Smoking
+                                </label>
+                                <label class="btn btn-danger">
+                                  <input type="radio" name="options" id="smoking" autocomplete="off">Smoking
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center">
+                            <label for="datetime" class="col-12 col-sm-2 col-form-label">Date and Time</label>
+                            <div class="col-12 col-sm-5">
+                                <div class="input-group">
+                                    <span class="fa fa-calendar"></span>
+                                    <input type="text" class="form-control" id="datetime" name="date" placeholder="Date">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-5">
+                                <div class="input-group">
+                                    <span class="fa fa-clock-o"></span>
+                                    <input type="text" class="form-control" id="datetime" name="time" placeholder="Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-sm-2 col-md-10">
+                                <button type="submit" class="btn btn-primary" style="width: 120px;">Reserve</button>
+                                <button type="reset" class="btn btn-default" style="width: 120px; margin-left: 20px;" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="jumbotron">
         <div class="container">
             <div class="row row-header">
@@ -84,12 +158,13 @@
                     <img src="img/logo.png" alt="logo" class="image-fluid">
                 </div>
                 <div class="col-12 col-sm-3 align-self-center">
-                    <a class="btn btn-block bg-white" href="#reserve-form">Make a Reservation</a>
+                    <button type="button" class="btn btn-warning text-white" data-toggle="modal" data-target="#reservemodal">Make a Reservation</a>
                 </div>
             </div>
         </div>
     </header>
 
+    <!--Main Body-->
     <div class="container">
         <div class="row row-content">
             <div class="col">
@@ -134,6 +209,9 @@
                     <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
+                    <button class="btn btn-danger btn-sm" id="carousel-button">
+                            <span class="fa fa-pause"></span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -189,75 +267,24 @@
                 </div>
             </div>
         </div>
-        <div class="row row-content justify-content-center">
-            <div class="col col-sm-8 align-self-center">
-                <div class="card" id="reserve-form">
-                    <h3 class="card-header bg-primary text-white">Reserve a Table</h3>
-                    <div class="card-body">
-                        <form id="reservetable">
-                            <div class="form-group row align-items-center">
-                                <label class="col-12 col-sm-2 col-form-label">Number of Guests</label>
-                                <div class="form-check form-check-inline col-12 col-sm">
-                                    <label class="form-check-label">
-										<input style="margin-right: 10px; margin-left: 10px;" type="radio" class="form-check-input" id="numberofguest1" name="numberofguest" value="1" checked>1
-									</label>
-                                    <label class="form-check-label">
-										<input style="margin-right: 10px; margin-left: 10px;" type="radio" class="form-check-input" id="numberofguest2" name="numberofguest" value="2">2
-									</label>
-                                    <label class="form-check-label">
-										<input style="margin-right: 10px; margin-left: 10px;" type="radio" class="form-check-input" id="numberofguest3" name="numberofguest" value="2">3
-									</label>
-                                    <label class="form-check-label">
-										<input style="margin-right: 10px; margin-left: 10px;" type="radio" class="form-check-input" id="numberofguest4" name="numberofguest" value="2">4
-									</label>
-                                    <label class="form-check-label">
-										<input style="margin-right: 10px; margin-left: 10px;" type="radio" class="form-check-input" id="numberofguest5" name="numberofguest" value="2">5
-									</label>
-                                    <label class="form-check-label">
-										<input style="margin-right: 10px; margin-left: 10px;" type="radio" class="form-check-input" id="numberofguest6" name="numberofguest" value="2">6
-									</label>
-                                </div>
-                            </div>
-                            <div class="form-group row align-items-center">
-                                <label for="datetime" class="col-12 col-sm-2 col-form-label">Date and Time</label>
-                                <div class="col-12 col-sm-5">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="datetime" name="date" placeholder="Date">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-5">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="datetime" name="time" placeholder="Time">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="offset-sm-2 col-md-10">
-                                    <button type="submit" class="btn btn-primary">Reserve</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-7 col-sm-4">
-                    <h5>Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="aboutus.html">About</a></li>
-                        <li><a href="#">Menu</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-4 col-sm-4">
-                    <h5>Our Address</h5>
-                    <address>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-7 col-sm-4">
+                        <h5>Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="aboutus.html">About</a></li>
+                            <li><a href="#">Menu</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-4 col-sm-4">
+                        <h5>Our Address</h5>
+                        <address>
 		              121, Clear Water Bay Road<br>
 		              Clear Water Bay, Kowloon<br>
 		              HONG KONG<br>
@@ -265,29 +292,47 @@
 		              <span class="fa fa-fax"></span>: +852 8765 4321<br>
 		              <span class="fa fa-envelope"></span>: <a href="mailto:confusion@food.net">confusion@food.net</a>
 		           </address>
+                    </div>
+                    <div class="col-12 col-sm-4 align-self-center">
+                        <div class="text-center">
+                            <a class="btn btn-social-icon btn-google" href="http://google.com/+"><span class="fa fa-google-plus fa-lg"></span></a>
+                            <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><span class="fa fa-facebook fa-lg"></span></a>
+                            <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><span class="fa fa-linkedin fa-lg"></span></a>
+                            <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><span class="fa fa-twitter fa-lg"></span></a>
+                            <a class="btn btn-social-icon btn-youtube" href="http://youtube.com/"><span class="fa fa-youtube fa-lg"></span></a>
+                            <a class="btn btn-social-icon" href="mailto:"><span class="fa fa-envelope fa-lg"></span></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 col-sm-4 align-self-center">
-                    <div class="text-center">
-                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><span class="fa fa-google-plus fa-lg"></span></a>
-                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><span class="fa fa-facebook fa-lg"></span></a>
-                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><span class="fa fa-linkedin fa-lg"></span></a>
-                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><span class="fa fa-twitter fa-lg"></span></a>
-                        <a class="btn btn-social-icon btn-youtube" href="http://youtube.com/"><span class="fa fa-youtube fa-lg"></span></a>
-                        <a class="btn btn-social-icon" href="mailto:"><span class="fa fa-envelope fa-lg"></span></a>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <p>© Copyright 2018 Ristorante Con Fusion</p>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-auto">
-                    <p>© Copyright 2018 Ristorante Con Fusion</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
-    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        </footer>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+        <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+        <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#mycarousel').carousel({
+                    interval: 3000
+                });
+                $('#carousel-button').click(function() {
+                    if ($('#carousel-button').children('span').hasClass('fa-pause')) {
+                        $('#mycarousel').carousel('pause');
+                        $('#carousel-button').children('span').removeClass('fa-pause');
+                        $('#carousel-button').children('span').addClass('fa-play');
+                    } else {
+                        $('#mycarousel').carousel('cycle');
+                        $('#carousel-button').children('span').removeClass('fa-play');
+                        $('#carousel-button').children('span').addClass('fa-pause');
+                    }
+                });
+            })
+        </script>
 
 </body>
 
